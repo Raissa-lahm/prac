@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>PRAC Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- LEAFLET -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- CHART -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+
+  <!-- SOS -->
+  <button class="sos">SOS</button>
+
+  <div class="layout">
+
+    <!-- MAPA -->
+    <div id="map"></div>
+
+    <!-- PAINEL -->
+    <aside class="painel">
+
+      <h1>PRAC</h1>
+
+      <p class="subtitulo">
+        Plataforma de Riscos e Alertas Climáticos
+      </p>
+
+      <!-- CARDS -->
+      <div class="cards">
+
+        <div class="card">
+          <h3>🌡 Temperatura</h3>
+          <span>22°C</span>
+        </div>
+
+        <div class="card">
+          <h3>💧 Umidade</h3>
+          <span>80%</span>
+        </div>
+
+        <div class="card risco">
+          <h3>⚠ Risco Atual</h3>
+          <span>ALTO</span>
+        </div>
+
+      </div>
+
+      <!-- ALERTAS -->
+      <h2>Alertas Ativos</h2>
+
+      <div id="alertas"></div>
+
+      <!-- GRÁFICO -->
+      <h2>Análise Climática</h2>
+
+      <div class="grafico-container">
+        <canvas id="grafico"></canvas>
+      </div>
+
+      <!-- ORIENTAÇÕES -->
+      <h2>Orientações</h2>
+
+      <div class="orientacoes">
+
+        <p>✅ Evite áreas alagadas</p>
+
+        <p>✅ Procure locais seguros</p>
+
+        <p>✅ Acione a Defesa Civil</p>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>

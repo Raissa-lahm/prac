@@ -11,6 +11,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// EJS
+app.set("view engine", "ejs");
+
+app.set("views", path.join(__dirname, "views"));
+
+// ARQUIVOS ESTÁTICOS
+app.use(express.static(path.join(__dirname, "public")));
+
 // MONGODB
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
@@ -20,14 +28,13 @@ mongoose.connect(process.env.MONGO_URI)
     console.log(erro);
 });
 
-// FRONTEND
-const frontendPath = path.join(__dirname, "../frontend");
-
-app.use(express.static(frontendPath));
-
-// ROTA PRINCIPAL
+// ROTAS
 app.get("/", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
+    res.render("index");
+});
+
+app.get("/dashboard", (req, res) => {
+    res.render("dashboard");
 });
 
 // SERVIDOR

@@ -230,8 +230,41 @@
     ACIONAR DEFESA CIVIL
 
   </button>
+  <section class="crud-section">
 
+  <h2>Registro de Ocorrências Climáticas</h2>
+
+  <p>
+    Registros utilizados pela Defesa Civil para monitoramento e análise preditiva.
+  </p>
+
+  <!-- FORMULÁRIO -->
+  <div class="form-box">
+
+    <input id="tipo" placeholder="Tipo (Enchente, Deslizamento...)">
+
+    <input id="cidade" placeholder="Cidade">
+
+    <select id="nivelRisco">
+      <option>Baixo</option>
+      <option>Moderado</option>
+      <option>Alto</option>
+    </select>
+
+    <textarea id="descricao" placeholder="Descrição"></textarea>
+
+    <button onclick="criarOcorrencia()">
+      Registrar Ocorrência
+    </button>
+
+  </div>
+
+  <!-- LISTA -->
+  <div id="listaOcorrencias"></div>
+
+</section>
   <script src="/js/app.js"></script>
+
 
 </body>
 </html>

@@ -390,3 +390,39 @@ body {
   }
 
 }
+.crud-section {
+  padding: 60px 8%;
+  background: #f8fafc;
+}
+
+.form-box {
+  display: grid;
+  gap: 10px;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+.form-box button {
+  padding: 12px;
+  background: #009dff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ocorrencia-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}

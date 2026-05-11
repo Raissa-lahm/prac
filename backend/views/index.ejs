@@ -7,28 +7,231 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
 
-  <title>PRAC</title>
+  <title>PRAC IA</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/style.css">
+
+  <!-- LEAFLET -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 
-<body class="home">
+<body>
 
-  <div class="overlay"></div>
+  <!-- HEADER -->
+  <header class="header">
 
-  <div class="hero">
+    <div class="logo-area">
 
-    <h1>PRAC</h1>
+      <!-- LOGO -->
+      <img src="/images/logo.png"
+        alt="PRAC Logo"
+        class="logo">
 
-    <p>
-      Plataforma de Riscos e Alertas Climáticos
-    </p>
+      <div>
 
-    <button onclick="window.location.href='/dashboard'">
-      Acessar Plataforma
-    </button>
+        <h1>PRAC IA</h1>
 
-  </div>
+        <p>
+          Plataforma de Riscos e Alertas Climáticos
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="status">
+
+      <span class="status-dot"></span>
+
+      Sistema Online
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <span class="tag">
+        ANÁLISE PREDITIVA EM TEMPO REAL
+      </span>
+
+      <h2>
+        Monitoramento Inteligente
+        de Riscos Climáticos Urbanos
+      </h2>
+
+      <p>
+        O PRAC utiliza análise preditiva para auxiliar
+        na prevenção de enchentes, alagamentos e eventos extremos,
+        permitindo respostas rápidas e maior segurança urbana.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="/dashboard" class="primary-btn">
+          Acessar Plataforma
+        </a>
+
+        <button class="secondary-btn">
+          Ver Alertas
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARDS -->
+    <div class="hero-cards">
+
+      <div class="info-card">
+
+        <h3>🌧 Probabilidade de Chuva</h3>
+
+        <span>87%</span>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>🌡 Temperatura</h3>
+
+        <span>22°C</span>
+
+      </div>
+
+      <div class="info-card alert">
+
+        <h3>⚠ Risco Atual</h3>
+
+        <span>ALTO</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MAPA -->
+  <section class="map-section">
+
+    <div class="section-header">
+
+      <h2>
+        Mapa de Vulnerabilidade Climática
+      </h2>
+
+      <p>
+        O mapa apresenta áreas monitoradas com maior probabilidade
+        de enchentes, alagamentos e eventos climáticos extremos.
+      </p>
+
+    </div>
+
+    <!-- LEGENDA -->
+    <div class="legend">
+
+      <div>
+        <span class="green"></span>
+        Área Segura
+      </div>
+
+      <div>
+        <span class="yellow"></span>
+        Atenção
+      </div>
+
+      <div>
+        <span class="red"></span>
+        Risco Alto
+      </div>
+
+    </div>
+
+    <!-- MAPA -->
+    <div id="map"></div>
+
+  </section>
+
+  <!-- IA -->
+  <section class="analysis">
+
+    <div class="analysis-box">
+
+      <h2>
+        IA Preditiva Climática
+      </h2>
+
+      <p id="typewriter"></p>
+
+    </div>
+
+  </section>
+
+  <!-- ALERTAS -->
+  <section class="alerts-section">
+
+    <div class="section-header">
+
+      <h2>Alertas Ativos</h2>
+
+      <p>
+        Informações atualizadas em tempo real
+        sobre ocorrências climáticas.
+      </p>
+
+    </div>
+
+    <div class="alerts-grid">
+
+      <div class="alert-card high">
+
+        <h3>🚨 Enchente</h3>
+
+        <p>
+          Risco elevado na região central de Taquara.
+        </p>
+
+      </div>
+
+      <div class="alert-card medium">
+
+        <h3>⚠ Chuva Intensa</h3>
+
+        <p>
+          Alto volume de precipitação previsto.
+        </p>
+
+      </div>
+
+      <div class="alert-card safe">
+
+        <h3>✅ Área Estável</h3>
+
+        <p>
+          Região monitorada sem alterações críticas.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOS -->
+  <button class="sos-btn">
+
+    ACIONAR DEFESA CIVIL
+
+  </button>
+
+  <script src="/js/app.js"></script>
 
 </body>
 </html>

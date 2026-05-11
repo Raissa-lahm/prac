@@ -1,134 +1,97 @@
 // MAPA
 
-const map = L.map("map").setView([-30.03, -51.22], 12);
+const map = L.map('map').setView([-29.6783, -50.7833], 10);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "OpenStreetMap",
-  maxZoom: 19,
+L.tileLayer(
+'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+{
+  attribution: '&copy; OpenStreetMap &copy; CARTO'
 }).addTo(map);
 
-// ÁREAS DE RISCO
+// TAQUARA
 
-L.circle([-30.03, -51.22], {
-  color: "red",
-  fillColor: "#ff3b3b",
-  fillOpacity: 0.5,
-  radius: 800
+L.circle([-29.6783, -50.7833], {
+  color: '#ef4444',
+  fillColor: '#ef4444',
+  fillOpacity: 0.4,
+  radius: 3500
 })
 .addTo(map)
-.bindPopup("🚨 RISCO EXTREMO");
+.bindPopup(`
+<b>Taquara</b><br>
+Risco elevado de enchentes.<br>
+Nível do rio acima do normal.
+`);
 
-L.circle([-30.04, -51.20], {
-  color: "yellow",
-  fillColor: "#ffcc00",
-  fillOpacity: 0.5,
-  radius: 800
+// PAROBÉ
+
+L.circle([-29.6286, -50.8347], {
+  color: '#facc15',
+  fillColor: '#facc15',
+  fillOpacity: 0.4,
+  radius: 3000
 })
 .addTo(map)
-.bindPopup("⚠ RISCO MODERADO");
+.bindPopup(`
+<b>Parobé</b><br>
+Estado de atenção para chuva intensa.
+`);
 
-// ALERTAS
+// IGREJINHA
 
-const alertasDiv = document.getElementById("alertas");
+L.circle([-29.5744, -50.7902], {
+  color: '#22c55e',
+  fillColor: '#22c55e',
+  fillOpacity: 0.4,
+  radius: 2500
+})
+.addTo(map)
+.bindPopup(`
+<b>Igrejinha</b><br>
+Área monitorada sem risco crítico.
+`);
 
-const alertas = [
-  "⚠ Enchente iminente na região central",
-  "⚠ Chuva forte nas próximas 2 horas",
-  "⚠ Nível do rio em elevação"
-];
+// IA TYPEWRITER
 
-function atualizarAlertas() {
+const texto =
+`Analisando dados pluviométricos...
 
-  alertasDiv.innerHTML = "";
+Aumento de 18% na probabilidade
+de alagamentos na região do
+Vale do Paranhana.
 
-  alertas.forEach((alerta) => {
+Sistema recomenda estado
+de atenção preventiva
+nas próximas 2 horas.`;
 
-    const div = document.createElement("div");
+let i = 0;
 
-    div.className = "alerta vermelho";
+function escrever() {
 
-    div.innerText = alerta;
+  if(i < texto.length) {
 
-    alertasDiv.appendChild(div);
+    document.getElementById("typewriter")
+    .innerHTML += texto.charAt(i);
 
-  });
+    i++;
+
+    setTimeout(escrever, 35);
+  }
 }
 
-atualizarAlertas();
+escrever();
 
-// GRÁFICO
+// SOS
 
-const grafico = document.getElementById("grafico");
+document.querySelector(".sos-btn")
+.addEventListener("click", () => {
 
-new Chart(grafico, {
-  type: "line",
+  alert(`
+Defesa Civil: 199
 
-  data: {
-    labels: ["Seg", "Ter", "Qua", "Qui", "Sex"],
+SAMU: 192
 
-    datasets: [{
-      label: "Risco Climático",
-
-      data: [20, 40, 60, 80, 70],
-
-      borderColor: "#ff3b3b",
-
-      backgroundColor: "rgba(255,59,59,0.2)",
-
-      tension: 0.4,
-
-      fill: true
-    }]
-  },
-
-  options: {
-    responsive: true,
-
-    plugins: {
-      legend: {
-        labels: {
-          color: "white"
-        }
-      }
-    },
-
-    scales: {
-
-      x: {
-        ticks: {
-          color: "white"
-        }
-      },
-
-      y: {
-        ticks: {
-          color: "white"
-        }
-      }
-
-    }
-
-  }
-});
-
-// ALERTAS AUTOMÁTICOS
-
-setInterval(() => {
-
-  const novo = document.createElement("div");
-
-  novo.className = "alerta amarelo";
-
-  novo.innerText = "⚠ Atualização climática automática";
-
-  alertasDiv.prepend(novo);
-
-}, 8000);
-
-// BOTÃO SOS
-
-document.querySelector(".sos").addEventListener("click", () => {
-
-  alert("🚨 Defesa Civil acionada (simulação)");
+Bombeiros: 193
+  `);
 
 });

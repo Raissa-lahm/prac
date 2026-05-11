@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>PRAC - Monitoramento Climático</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- CHUVA ANIMADA -->
+  <div class="rain"></div>
+
+  <!-- BOTÃO SOS -->
+  <button class="sos">SOS</button>
+
+  <div class="layout">
+
+    <!-- MAPA -->
+    <div id="map"></div>
+
+    <!-- PAINEL -->
+    <aside class="painel">
+
+      <h2>PRAC - Monitoramento</h2>
+
+      <canvas id="grafico"></canvas>
+
+      <h3>Alertas Ativos</h3>
+      <div id="alertas"></div>
+
+      <h3>Boletim Climático</h3>
+      <p>🌡 22°C</p>
+      <p>💧 Umidade 80%</p>
+      <p>🌬 Vento moderado</p>
+
+    </aside>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
